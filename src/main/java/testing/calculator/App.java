@@ -73,10 +73,15 @@ public class App {
                 continue;
             }
 
-            // Lakukan perhitungan
+         // Lakukan perhitungan
             Calculate calculator = new Calculate();
-            float result = calculator.calculation(number1, number2, operator.charAt(0));
-            System.out.println("Hasil perhitungan: " + result);
+            float result = (float) calculator.calculation(number1, number2, operator.charAt(0));
+            if (operator.equals("/")) {
+                System.out.println("Hasil perhitungan: " + result);
+            } else {
+                int intResult = (int) result;
+                System.out.println("Hasil perhitungan: " + intResult);
+            }
 
             // Meminta pengguna untuk mengulang perhitungan atau keluar dari program
             System.out.println("Tekan tombol enter untuk melakukan perhitungan kembali atau tekan sembarang tombol untuk keluar...");
@@ -89,7 +94,11 @@ public class App {
     }
 
     private static void clearScreen() {
-       // System.out.print("\033[H\033[2J");
-        System.out.flush();
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            // Handle exception
+            System.out.println(e.getMessage());
+        }
     }
 }
