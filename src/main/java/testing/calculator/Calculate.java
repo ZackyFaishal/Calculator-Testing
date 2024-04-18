@@ -18,7 +18,7 @@ public class Calculate {
 	                result =  operationObj.multiply(number1, number2);;
 	                break;
 	            case '/':
-	                result =  operationObj.divide(number1, number2);
+	                result =  (float) operationObj.divide(number1, number2);
 	                break;
 	        }
 

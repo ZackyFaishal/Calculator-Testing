@@ -74,13 +74,14 @@ public class App {
             }
 
          // Lakukan perhitungan
+            String operation = number1 + " " + operator + " " + number2;
             Calculate calculator = new Calculate();
             float result = (float) calculator.calculation(number1, number2, operator.charAt(0));
             if (operator.equals("/")) {
-                System.out.println("Hasil perhitungan: " + result);
+                System.out.println("Hasil perhitungan : " + operation + " = " + result);
             } else {
                 int intResult = (int) result;
-                System.out.println("Hasil perhitungan: " + intResult);
+                System.out.println("Hasil perhitungan: " + operation + " = " + intResult);
             }
 
             // Meminta pengguna untuk mengulang perhitungan atau keluar dari program
