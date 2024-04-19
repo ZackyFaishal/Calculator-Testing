@@ -19,6 +19,18 @@ public class OperationTesting {
 		int actual = operation.subtract(3, 1);
 		assertEquals (2,actual);
 	}
-	
-	
+
+	@Test
+	public void multiplyTesting() {
+		Operation operation = new Operation();
+		int actual = operation.multiply(-3, -4);
+		assertEquals (12,actual);
+	}
+
+	@Test
+	public void divideTesting() {
+		Operation operation = new Operation();
+		double actual = operation.divide(2, 4);
+		assertEquals (0.5,actual);
+	}
 }
