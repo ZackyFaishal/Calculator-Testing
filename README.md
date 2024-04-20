@@ -20,6 +20,7 @@ Make Simple Calculator App in Java for Automation Testing
 ## Prerequisites
 1. Install JDK.
 2. Install Maven.
+3. Install Extension Pack for Java (Jika menggunakan Visual Studio Code).
 
 ## Run Automation Test
 1. Jalankan perintah berikut pada terminal:
