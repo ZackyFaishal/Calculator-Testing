@@ -3,7 +3,7 @@ package testing.calculator;
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
-public class ValidationTesting {
+public class ValidationTest {
 
 	//validateNumber
 	@Test
@@ -16,6 +16,12 @@ public class ValidationTesting {
 	public void validNumberTesting() {
 	    String actual = Validation.validateNumber("3");
 	    assertEquals(null, actual);
+	}
+
+	@Test
+	public void validNumberTestingNotNumber() {
+	    String actual = Validation.validateNumber("a");
+	    assertEquals("Error: Input harus berupa angka.", actual);
 	}
 
 	//validateOperator
