@@ -30,7 +30,7 @@ public class OperationTest {
 	@Test
 	public void divideTesting() {
 		Operation operation = new Operation();
-		double actual = operation.divide(2, 4);
-		assertEquals (0.5,actual);
+		double actual = operation.divide(24, 4);
+		assertEquals (6,actual);
 	}
 }

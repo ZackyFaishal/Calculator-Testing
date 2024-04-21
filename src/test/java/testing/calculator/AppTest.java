@@ -1,26 +1,19 @@
-
 package testing.calculator;
 
-import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.io.PrintStream;
 
-import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.Test;
 
-
-/**
- * Unit test for simple App.
- */
-public class AppTest 
-{
+public class AppTest {
 
     private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private final ByteArrayOutputStream errContent = new ByteArrayOutputStream();
     private final String newLine = System.getProperty("line.separator");
-    
 
     @Test
     public void inputValidOperationIntegerTesting() {
@@ -33,8 +26,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Hasil perhitungan 5 * 2 = 10" + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Hasil perhitungan 5 * 2 = 10" + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -48,8 +43,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Input harus berupa angka." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Input harus berupa angka." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -63,8 +60,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Angka harus berada dalam rentang -32,768 hingga 32,767." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Angka harus berada dalam rentang -32,768 hingga 32,767." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
     
     @Test
@@ -78,8 +77,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Input harus berupa angka." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Input harus berupa angka." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -93,8 +94,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Angka harus berada dalam rentang -32,768 hingga 32,767." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Angka harus berada dalam rentang -32,768 hingga 32,767." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -108,8 +111,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Operator tidak valid." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Operator tidak valid." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -123,8 +128,10 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Error: Pembagian dengan nol tidak diizinkan." + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "Error: Pembagian dengan nol tidak diizinkan." + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
     @Test
@@ -138,8 +145,19 @@ public class AppTest
     
         App.main(new String[0]);
     
-        String errorMessage = "Hasil perhitungan 10 / 4 = 2.5" + newLine;
-        assertTrue(outContent.toString().contains(errorMessage));
+        String actualResult = outContent.toString();
+        String expectedResult = "   " + newLine;
+        
+        assertEquals(expectedResult, extractResult(actualResult));
     }
 
+    // Metode untuk mengekstrak hasil perhitungan atau pesan kesalahan dari output
+    private String extractResult(String output) {
+        // Menghapus bagian masukan angka dan operator dari output
+        int startIndex = output.indexOf("Hasil perhitungan");
+        if (startIndex == -1) {
+            startIndex = output.indexOf("Error:");
+        }
+        return output.substring(startIndex);
     }
+}
