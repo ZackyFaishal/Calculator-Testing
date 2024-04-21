@@ -146,7 +146,7 @@ public class AppTest {
         App.main(new String[0]);
     
         String actualResult = outContent.toString();
-        String expectedResult = "   " + newLine;
+        String expectedResult = "Hasil perhitungan 10 / 4 = 2.5" + newLine;
         
         assertEquals(expectedResult, extractResult(actualResult));
     }
