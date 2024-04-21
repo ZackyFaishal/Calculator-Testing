@@ -31,5 +31,5 @@ Make Simple Calculator App in Java for Automation Testing
     ```
    mvn site
    ```
-3. Buka hasil report pada file `D:\Semester6\PPL\Calculator-Testing\target\site\surefire-report.html` dalam browser.
+3. Buka hasil report pada file `\target\site\surefire-report.html` dalam browser.
    ![TestReport](https://github.com/ZackyFaishal/Calculator-Testing/assets/101083495/d6985689-041e-46f2-9562-7481bfb3780b)
